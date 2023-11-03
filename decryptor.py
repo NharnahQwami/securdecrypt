@@ -1,4 +1,4 @@
-import random, time, base64, hashlib, codecs
+import random, time, base64, hashlib, codecs, binascii
 
 banner1 = ("""
 
@@ -94,8 +94,6 @@ def hex_decode(text):
     except:
         return "Decoding error. Ensure the input is valid hexadecimal text."
 
-# MD5 decryption
-
 # Base85 decoding
 def base85_decode(text):
     try:
@@ -120,7 +118,27 @@ def vigenere_decrypt(text, key):
             decrypted_char = char
         decrypted_text += decrypted_char
     return decrypted_text
+
+# MD5 decryption
+rainbow_table = {
+    '098f6bcd4621d373cade4e832627b4f6': 'hello',
+    '5eb63bbbe01eeed093cb22bb8f5acdc3': 'world',
+    # Add more entries as needed
+}
+
+def md5_decrypt(md5_hash):
+    if md5_hash in rainbow_table:
+        return rainbow_table[md5_hash]
+    else:
+        return "Decryption not found in rainbow table."
     
+# Base16 decoding
+def base16_decode(text):
+    try:
+        decoded_bytes = binascii.unhexlify(text)
+        return decoded_bytes.decode()
+    except binascii.Error:
+        return "Decoding error. Ensure the input is valid Base16 encoded text."
         
 def display_menu():
     print("Decryption Methods:")
@@ -162,17 +180,23 @@ def decrypt(method, input_text, key=None):
         if key is None:
             return "Key required for Vigenère cipher decryption."
         return vigenere_decrypt(text, key)
+    elif method == "8":
+        md5_hash = input("Enter the MD5 hash to decrypt: ")
+        return md5_decrypt(md5_hash)
     else:
         return "Unsupported decryption method."
 
 if __name__ == "__main__":
     method = display_menu()
-    key = None
-    if method == "3":
-        key = int(input("Enter the Caesar's cipher key: "))
-    input_text = input("Enter the text to decrypt: ")
+    if method not in ("5", "6", "7"):
+        key = None
+        if method in ("3", "7"):
+            key = input("Enter the decryption key: ")
+        text = input("Enter the text to decrypt: ")
+    else:
+        text = input("Enter the text to process: ")
 
     
     result = decrypt(method, key)
-    print("Decrypted text:")
+    print("Decrypted text: ")
     print(result)
