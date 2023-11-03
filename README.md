@@ -6,10 +6,10 @@ This Python script allows you to perform decryption using various cryptographic 
 
 1. Make sure you have Python3 installed on your system.
 
-2. Install the required dependencies by running:
+2. Install the required dependencies by running: <br>
    <code> pip install -r requirements.txt> </code>
 
-3. Run the script with the following command:
+3. Run the script with the following command: <br>
    <code> python3 decryptor.py </code>
 
 4. Select a decryption method from the menu and, if applicable, enter the Caesar's cipher key.
