@@ -1,4 +1,52 @@
+import random, time
 import base64
+
+banner1 = ("""
+
+\033[1;31m
+                   
+  _____                             _        
+ |  __ \                           | |            
+ | |  | | ___  ___ _ __ _   _ _ __ | |_ ___  _ __ 
+ | |  | |/ _ \/ __| '__| | | | '_ \| __/ _ \| '__|
+ | |__| |  __/ (__| |  | |_| | |_) | || (_) | |   
+ |_____/ \___|\___|_|   \__, | .__/ \__\___/|_|   
+                         __/ | |                  
+                        |___/|_|                  
+\033[1;m
+                                \033[1;31mSecurDecrypt v1.0\033[0m
+
+    ✓ The author is not responsible for any damage, misuse of the information.
+    ✓ SecurDecrypt shall only be used to expand knowledge and not for
+      causing malicious or damaging attacks.
+    ✓ Just remember, Performing any hacks without written permission is illegal ..!
+
+            \033[1;31mHi there, Shall we play a game..?\033[0m 😃
+        """)
+
+banner2 = ("""
+
+\033[1;31m
+   ▄▄▄▄▄   ▄███▄   ▄█▄      ▄   █▄▄▄▄ ██▄   ▄███▄   ▄█▄    █▄▄▄▄ ▀▄    ▄ █ ▄▄     ▄▄▄▄▀ 
+  █     ▀▄ █▀   ▀  █▀ ▀▄     █  █  ▄▀ █  █  █▀   ▀  █▀ ▀▄  █  ▄▀   █  █  █   █ ▀▀▀ █    
+▄  ▀▀▀▀▄   ██▄▄    █   ▀  █   █ █▀▀▌  █   █ ██▄▄    █   ▀  █▀▀▌     ▀█   █▀▀▀      █    
+ ▀▄▄▄▄▀    █▄   ▄▀ █▄  ▄▀ █   █ █  █  █  █  █▄   ▄▀ █▄  ▄▀ █  █     █    █        █     
+           ▀███▀   ▀███▀  █▄ ▄█   █   ███▀  ▀███▀   ▀███▀    █    ▄▀      █      ▀      
+                           ▀▀▀   ▀                          ▀              ▀            
+\033[1;m
+                                                    \033[1;31m v1.0\033[0m
+
+    ✓ The author is not responsible for any damage, misuse of the information.
+    ✓ SecurDecrypt shall only be used to expand knowledge and not for
+      causing malicious or damaging attacks.
+    ✓ Just remember, Performing any hacks without written permission is illegal ..!
+
+            \033[1;31mHi there, Shall we play a game..?\033[0m 😃
+        """)
+
+choi = (banner1, banner2)
+print (random.choice(choi))
+time.sleep(0.3)
 
 # ROT13 decryption
 def rot13_encrypt(text):
@@ -53,7 +101,7 @@ def display_menu():
     print("2. Base64")
     print("3. Caesar's Cipher")
     print("4. Hexadecimal")
-    method = input("Select a decryption method (1/2/3/4): ")
+    method = input("Select a decryption method: ")
     return method
 
 def decrypt(method, key=None):
