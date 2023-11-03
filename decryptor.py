@@ -1,5 +1,4 @@
-import random, time
-import base64
+import random, time, base64, hashlib, codecs, binascii
 
 banner1 = ("""
 
@@ -95,16 +94,66 @@ def hex_decode(text):
     except:
         return "Decoding error. Ensure the input is valid hexadecimal text."
 
+# Base85 decoding
+def base85_decode(text):
+    try:
+        decoded_bytes = codecs.decode(text.encode(), 'base85')
+        return decoded_bytes.decode()
+    except:
+        return "Decoding error. Ensure the input is valid Base85 encoded text."
+
+# Vigenère cipher decryption
+def vigenere_decrypt(text, key):
+    decrypted_text = ""
+    key_len = len(key)
+    for i, char in enumerate(text):
+        if char.isalpha():
+            key_char = key[i % key_len]
+            shift = ord(key_char.lower()) - ord('a')
+            if char.islower():
+                decrypted_char = chr(((ord(char) - ord('a') - shift) % 26) + ord('a'))
+            else:
+                decrypted_char = chr(((ord(char) - ord('A') - shift) % 26) + ord('A'))
+        else:
+            decrypted_char = char
+        decrypted_text += decrypted_char
+    return decrypted_text
+
+# MD5 decryption
+rainbow_table = {
+    '098f6bcd4621d373cade4e832627b4f6': 'hello',
+    '5eb63bbbe01eeed093cb22bb8f5acdc3': 'world',
+    # Add more entries as needed
+}
+
+def md5_decrypt(md5_hash):
+    if md5_hash in rainbow_table:
+        return rainbow_table[md5_hash]
+    else:
+        return "Decryption not found in rainbow table."
+    
+# Base16 decoding
+def base16_decode(text):
+    try:
+        decoded_bytes = binascii.unhexlify(text)
+        return decoded_bytes.decode()
+    except binascii.Error:
+        return "Decoding error. Ensure the input is valid Base16 encoded text."
+        
 def display_menu():
     print("Decryption Methods:")
     print("1. ROT13")
     print("2. Base64")
     print("3. Caesar's Cipher")
     print("4. Hexadecimal")
+    print("5. Base16")
+    print("6. Base85")
+    print("7. Vigenère Cipher")
+    print("8. MD5 Decryption")
     method = input("Select a decryption method: ")
     return method
 
-def decrypt(method, key=None):
+def decrypt(method, input_text, key=None):
     input_text = input("Enter the text or the filename: ")
     if input_text.lower().endswith(".txt"):
         try:
@@ -123,15 +172,31 @@ def decrypt(method, key=None):
         return caesar_cipher_decrypt(input_text, key)
     elif method == "4":
         return hex_decode(input_text)
+    elif method == "5":
+        return base16_decode(text)
+    elif method == "6":
+        return base85_decode(text)
+    elif method == "7":
+        if key is None:
+            return "Key required for Vigenère cipher decryption."
+        return vigenere_decrypt(text, key)
+    elif method == "8":
+        md5_hash = input("Enter the MD5 hash to decrypt: ")
+        return md5_decrypt(md5_hash)
     else:
         return "Unsupported decryption method."
 
 if __name__ == "__main__":
     method = display_menu()
-    key = None
-    if method == "3":
-        key = int(input("Enter the Caesar's cipher key: "))
+    if method not in ("5", "6", "7"):
+        key = None
+        if method in ("3", "7"):
+            key = input("Enter the decryption key: ")
+        text = input("Enter the text to decrypt: ")
+    else:
+        text = input("Enter the text to process: ")
+
     
     result = decrypt(method, key)
-    print("Decrypted text:")
+    print("Decrypted text: ")
     print(result)

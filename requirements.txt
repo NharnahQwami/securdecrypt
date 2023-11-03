@@ -1,2 +1,5 @@
 base64
 pycryptodome==3.12.0
+hashlib
+codecs
+binascii
