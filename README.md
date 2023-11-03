@@ -1,4 +1,4 @@
-# Decryptor Script
+# SecurDecrypt Script
 
 This Python script allows you to perform decryption using various cryptographic methods including ROT13, Base64, Caesar's Cipher, and Hexadecimal encoding. It provides a menu for selecting the decryption method and prompts for input, making it easy to use.
 
@@ -6,9 +6,11 @@ This Python script allows you to perform decryption using various cryptographic 
 
 1. Make sure you have Python3 installed on your system.
 
-2. Install the required dependencies by running: <pip install -r requirements.txt>
+2. Install the required dependencies by running:
+   <code> pip install -r requirements.txt> </code>
 
-3. Run the script with the following command: <python3 decryptor.py>
+3. Run the script with the following command:
+   <code> python3 decryptor.py </code>
 
 4. Select a decryption method from the menu and, if applicable, enter the Caesar's cipher key.
 
@@ -38,4 +40,4 @@ This project is licensed under the [MIT License](LICENSE.md).
 
 ## Acknowledgments
 
-- Inspiration from playing CTFs and guidance from chatGPT :).
+- Inspiration from playing CTFs and guidance from chatGPT 😃.
