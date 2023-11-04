@@ -43,8 +43,8 @@ banner2 = ("""
             \033[1;31mHi there, Shall we play a game..?\033[0m 😃
         """)
 
-choi = (banner1, banner2)
-print (random.choice(choi))
+banners = (banner1, banner2)
+print (random.choice(banners))
 time.sleep(0.3)
 
 # ROT13 decryption

@@ -7,10 +7,10 @@ This Python script allows you to perform decryption using various cryptographic 
 1. Make sure you have Python3 installed on your system.
 
 2. Install the required dependencies by running: <br>
-   <code> pip install -r requirements.txt> </code>
+   <code>pip install -r requirements.txt</code>
 
 3. Run the script with the following command: <br>
-   <code> python3 decryptor.py </code>
+   <code>python3 decryptor.py</code>
 
 4. Select a decryption method from the menu and, if applicable, enter the Caesar's cipher key.
 
@@ -24,6 +24,10 @@ This Python script allows you to perform decryption using various cryptographic 
 - **Base64**: Decodes Base64-encoded text.
 - **Caesar's Cipher**: Decrypts text using a specified key.
 - **Hexadecimal**: Decodes hexadecimal-encoded text.
+- **Base16**: Decodes base16-encoded text
+- **Base85**: Decodes base85-encoded text
+- **Vigenère Cipher**: Decrypts text.
+- **MD5**: Decrypts hash.
 
 ## Requirements
 
