@@ -20,7 +20,7 @@ banner1 = ("""
       causing malicious or damaging attacks.
     ✓ Just remember, Performing any hacks without written permission is illegal ..!
 
-            \033[1;31mHi there, Shall we play a game..?\033[0m 😃
+            \033[1;31mWell, Shall we play a game..?\033[0m 😃
         """)
 
 banner2 = ("""
@@ -35,12 +35,11 @@ banner2 = ("""
 \033[1;m
                                                     \033[1;31m v1.0\033[0m
 
-    ✓ The author is not responsible for any damage, misuse of the information.
-    ✓ SecurDecrypt shall only be used to expand knowledge and not for
-      causing malicious or damaging attacks.
+    ✓ The author is not responsible for any damage, or misuse of the script.
+    ✓ SecurDecrypt shall only be used to expand knowledge and not to cause malicious or damaging attacks.
     ✓ Just remember, Performing any hacks without written permission is illegal ..!
 
-            \033[1;31mHi there, Shall we play a game..?\033[0m 😃
+            \033[1;31mWell, Shall we play a game..?\033[0m 😃
         """)
 
 banners = (banner1, banner2)
